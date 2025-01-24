@@ -16,3 +16,58 @@ Unique Features:
 Week 1-3: Creating a basic functiuonal website (just basic)
 Week 4-6: Add core features
 Week 7-9: Add additional features and start testing phase
+
+
+
+
+
+
+
+
+Detailed Timeline for FeelFlow MVP
+Week 1-2: Planning and Setup
+Planning:
+
+Define user personas and core user flows (e.g., login, writing journal entries, AI prompts).
+Draft wireframes for the key pages:
+Homepage (landing and user onboarding).
+Login/Sign-up page.
+Journaling interface.
+User settings.
+Reminders page.
+Tech Stack Setup:
+
+Frontend:
+Set up the React/Next.js project with Material-UI/Chakra UI for styling.
+Backend:
+Create a Node.js/Express backend API or set up a Python (Django/Flask) environment.
+Integrate PostgreSQL or Firebase Firestore for user and journal data.
+Week 3-4: Core Features
+Journaling Interface:
+
+Implement a rich text editor with basic formatting options.
+Save journal entries to the database.
+AI Prompts:
+
+Connect to OpenAI API for generating journaling prompts.
+Add a simple frontend interface for the user to receive and customize prompts.
+Account Creation:
+
+Implement user authentication using Firebase or Auth0.
+Add email/social login options (Google, Facebook).
+Week 5-6: Extra Features & Testing
+Reminders:
+
+Add a simple push notification system using the Push API.
+Set up email notifications via SendGrid.
+UI Enhancements:
+
+Polish the design with responsive layouts and clear UX flows.
+Add a dashboard with basic journaling stats (e.g., entry count, last activity).
+Testing:
+
+Conduct QA testing for bugs and responsiveness.
+Start user testing with a small group to gather feedback.
+Deployment:
+
+Deploy the frontend (Vercel/Netlify) and backend (Heroku/AWS Lambda).
