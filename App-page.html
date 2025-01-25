@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .profile-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Adjust as needed */
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+        }
+
+        .logout-button {
+            padding: 10px 20px;
+            background-color: #d9534f; /* Reddish color for logout */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <h2>User Profile</h2>
+
+        <div class="profile-info">
+            <p><strong>Username:</strong> <span id="usernameDisplay"></span></p>
+            <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+            </div>
+
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Get user data from local storage (or wherever you store it after login)
+        const userData = JSON.parse(localStorage.getItem('userData'));
+
+        if (userData) {
+            document.getElementById('usernameDisplay').textContent = userData.username;
+            document.getElementById('emailDisplay').textContent = userData.email;
+            // Display other user data
+        } else {
+            // If no user data, redirect to login page
+            window.location.href = "login.html"; // Redirect to login
+        }
+
+        function logout() {
+            localStorage.removeItem('userData'); // Clear user data
+            window.location.href = "login.html"; // Redirect to login
+        }
+    </script>
+
+</body>
+</html>
