@@ -40,5 +40,5 @@ app.post('/login', (req, res) => {
 
 // Start the server
 app.listen(3000, () => {
-    console.log('Server is running on http://192.168.10.4:3000');
+    console.log('Server is running on http://192.168.10.12:3000');
 });
