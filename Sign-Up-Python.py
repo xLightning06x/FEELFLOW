@@ -1,5 +1,5 @@
 import sqlite3
-import bcrypt
+import bcrypt # type: ignore
 
 def create_users_table():
     conn = sqlite3.connect('users.db')
