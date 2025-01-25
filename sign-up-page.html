@@ -88,31 +88,32 @@
     <script>
         const form = document.getElementById('signupForm');
         const errorMessage = document.getElementById('errorMessage');
-
+    
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
-
+    
             const username = document.getElementById('username').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-
+    
             errorMessage.textContent = ""; // Clear previous errors
-
+    
             if (password !== confirmPassword) {
                 errorMessage.textContent = "Passwords do not match.";
                 return;
             }
-
+    
             try {
-                const response = await fetch('http://localhost:3000/signup', {
+                // Change 'localhost' to your local IP address
+                const response = await fetch('http://192.168.10.4:3000/signup', { // Use your actual local IP address
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ username, email, password }),
                 });
-
+    
                 if (response.ok) {
                     alert("Sign Up Successful!");
                     // Redirect to login page or welcome page
