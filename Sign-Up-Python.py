@@ -1,4 +1,5 @@
 import sqlite3
+import bcrypt  # Import bcrypt for password hashing
 
 # Connect to database (or create it if it doesn't exist)
 conn = sqlite3.connect('database.db')
@@ -16,7 +17,10 @@ CREATE TABLE IF NOT EXISTS users (
 conn.commit()
 
 # Function to add a user
-def add_user(username, email, hashed_password):
+def add_user(username, email, password):
+    # Hash the password
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
     try:
         cursor.execute('''
         INSERT INTO users (username, email, hashed_password)
@@ -28,6 +32,10 @@ def add_user(username, email, hashed_password):
         print("Error: Username or email already exists.")
 
 # Example usage
-add_user('test_user', 'test@example.com', 'hashedpassword123')
+if __name__ == "__main__":
+    username = input("Enter username: ")
+    email = input("Enter email: ")
+    password = input("Enter password: ")  # In a real app, ensure password strength
+    add_user(username, email, password)
 
 conn.close()

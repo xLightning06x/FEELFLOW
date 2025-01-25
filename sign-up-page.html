@@ -89,7 +89,7 @@
         const form = document.getElementById('signupForm');
         const errorMessage = document.getElementById('errorMessage');
 
-        form.addEventListener('submit', (event) => {
+        form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
             const username = document.getElementById('username').value;
@@ -104,12 +104,26 @@
                 return;
             }
 
-            // More robust validation (e.g., email format, password strength) would go here
+            try {
+                const response = await fetch('http://localhost:3000/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, email, password }),
+                });
 
-            // In a real application, you would send this data to a server
-            alert("Sign Up Successful! (Data would be sent to a server in a real application)");
-            // You might redirect the user after successful sign up
-            // window.location.href = "welcome.html";
+                if (response.ok) {
+                    alert("Sign Up Successful!");
+                    // Redirect to login page or welcome page
+                    window.location.href = "Sign-in-page.html";
+                } else {
+                    const errorText = await response.text();
+                    errorMessage.textContent = errorText; // Display error message from server
+                }
+            } catch (error) {
+                errorMessage.textContent = "An error occurred. Please try again.";
+            }
         });
     </script>
 
