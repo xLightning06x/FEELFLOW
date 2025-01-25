@@ -1,5 +1,5 @@
 import sqlite3
-import bcrypt  # Import bcrypt for password hashing
+import bcrypt  
 
 # Connect to database (or create it if it doesn't exist)
 conn = sqlite3.connect('database.db')
