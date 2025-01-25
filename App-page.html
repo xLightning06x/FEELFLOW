@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 400px; /* Adjust as needed */
+            width: 400px;
             text-align: center;
         }
 
@@ -38,7 +38,7 @@
 
         .logout-button {
             padding: 10px 20px;
-            background-color: #d9534f; /* Reddish color for logout */
+            background-color: #d9534f;
             border: none;
             color: white;
             text-align: center;
@@ -56,29 +56,21 @@
         <h2>User Profile</h2>
 
         <div class="profile-info">
-            <p><strong>Username:</strong> <span id="usernameDisplay"></span></p>
-            <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
-            </div>
+            <p><strong>Username:</strong> <span id="usernameDisplay">Guest</span></p>
+            <p><strong>Email:</strong> <span id="emailDisplay">guest@example.com</span></p>
+            <p><strong>Status:</strong> <span id="statusDisplay">Logged In</span></p>
+        </div>
 
         <button class="logout-button" onclick="logout()">Logout</button>
     </div>
 
     <script>
-        // Get user data from local storage (or wherever you store it after login)
-        const userData = JSON.parse(localStorage.getItem('userData'));
-
-        if (userData) {
-            document.getElementById('usernameDisplay').textContent = userData.username;
-            document.getElementById('emailDisplay').textContent = userData.email;
-            // Display other user data
-        } else {
-            // If no user data, redirect to login page
-            window.location.href = "login.html"; // Redirect to login
-        }
-
         function logout() {
-            localStorage.removeItem('userData'); // Clear user data
-            window.location.href = "login.html"; // Redirect to login
+            // In a real app, you would clear cookies or session storage here
+            alert("Logged out!"); // Simple notification
+            document.getElementById('usernameDisplay').textContent = "Guest";
+            document.getElementById('emailDisplay').textContent = "guest@example.com";
+            document.getElementById('statusDisplay').textContent = "Logged Out";
         }
     </script>
 
