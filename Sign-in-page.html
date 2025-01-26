@@ -102,8 +102,7 @@
 
                 if (response.ok) {
                     alert("Login Successful!");
-                    // Redirect to a welcome page or dashboard
-                    window.location.href = "welcome.html"; // Change this to your actual welcome page
+                    window.location.href = "App-page.html";
                 } else {
                     const errorText = await response.text();
                     errorMessage.textContent = errorText; // Display error message from server
