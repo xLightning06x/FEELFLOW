@@ -72,7 +72,7 @@
             box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
             padding: 20px;
             text-align: center;
-            display: flex;
+            display: inline-block;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -101,9 +101,7 @@
         <h1>FEELFLOW</h1>
         <button id="homeBtn">Home</button>
         <button id="journalLibraryBtn">Journal Library</button>
-        <button id="promptsBtn">Journal Prompts</button>
         <button id="metricsBtn">Emotion Metrics</button>
-        <button id="streakBtn">Daily Streak</button>
         <button id="settingsBtn">Settings</button>
     </div>
 
@@ -120,24 +118,23 @@
             <h2>Emotion Metrics</h2>
             <p>Visualize your emotional trends over time.</p>
         </div>
-        <div id="insightsContent" class="content-box" style="display:none;">
+        <div id="insightsContent" class="content-box">
             <h2>Insights</h2>
             <p>Gain deeper insights from your journal entries.</p>
         </div>
-        <div id="StartJournalContent" class="content-box" style="display:none;">
+        <div id="StartJournalContent" class="content-box">
             <h2>New Journal</h2>
         </div>
     </div>
 
     <script>
-        // ... (JavaScript remains the same)
         const buttons = document.querySelectorAll('#sidebar button');
         const contentBoxes = {
             homeBtn: document.getElementById('StartJournalContent'),
-            promptsBtn: document.getElementById('promptsContent'),
+            homeBtn: document.getElementById('promptsContent'),
             streakBtn: document.getElementById('streakContent'),
             metricsBtn: document.getElementById('metricsContent'),
-            insightsBtn: document.getElementById('insightsContent')
+            homeBtn: document.getElementById('insightsContent')
         };
 
         buttons.forEach(button => {
@@ -160,13 +157,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
