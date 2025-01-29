@@ -92,6 +92,7 @@
           font-size: 1em;
           color: #ecf0f1;
         }
+
     </style>
 </head>
 <body>
@@ -104,8 +105,6 @@
         <button id="metricsBtn">Emotion Metrics</button>
         <button id="streakBtn">Daily Streak</button>
         <button id="settingsBtn">Settings</button>
-        <button id="aboutUsBtn">About Us</button>
-        <button id="contactUsBtn">Contact Us</button>
     </div>
 
     <div id="main-content">
@@ -122,16 +121,19 @@
             <p>Visualize your emotional trends over time.</p>
         </div>
         <div id="insightsContent" class="content-box" style="display:none;">
-          <h2>Insights</h2>
-          <p>Gain deeper insights from your journal entries.</p>
+            <h2>Insights</h2>
+            <p>Gain deeper insights from your journal entries.</p>
         </div>
-        <button id="new journalLibraryBtn">New Journal</button>
+        <div id="StartJournalContent" class="content-box" style="display:none;">
+            <h2>New Journal</h2>
+        </div>
     </div>
 
     <script>
         // ... (JavaScript remains the same)
         const buttons = document.querySelectorAll('#sidebar button');
         const contentBoxes = {
+            homeBtn: document.getElementById('StartJournalContent'),
             promptsBtn: document.getElementById('promptsContent'),
             streakBtn: document.getElementById('streakContent'),
             metricsBtn: document.getElementById('metricsContent'),
