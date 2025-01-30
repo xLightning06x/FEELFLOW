@@ -55,7 +55,7 @@
             background-color: #0077ff;
             font-weight: 600;
         }
-
+     
         #main-content {
             flex-grow: 1;
             padding: 30px;
@@ -135,6 +135,8 @@
             streakBtn: document.getElementById('streakContent'),
             metricsBtn: document.getElementById('metricsContent'),
             homeBtn: document.getElementById('insightsContent')
+
+            
         };
 
         buttons.forEach(button => {
@@ -154,6 +156,7 @@
 
         document.getElementById('promptsBtn').classList.add('active');
         contentBoxes.promptsBtn.style.display = 'flex';
+        
     </script>
 </body>
 </html>
