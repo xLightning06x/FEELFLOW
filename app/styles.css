@@ -1,0 +1,40 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #6200ea;
+    padding: 10px 0;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.navbar button:hover {
+    background-color: #3700b3;
+}
+
+/* Page Content */
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #6200ea;
+}
