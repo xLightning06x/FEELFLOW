@@ -3,160 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FeelFlow</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: #1f628e;
-            color: #ecf0f1;
-            display: flex;
-            min-height: 100vh;
-        }
-
-        #sidebar {
-            width: 280px;
-            background-color: #34495e;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-        }
-
-        #sidebar h1 {
-            font-size: 2em;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        #sidebar button {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: 500;
-            box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
-
-        #sidebar button:hover {
-            background-color: #2980b9;
-            transform: scale(1.02);
-        }
-        #sidebar button.active {
-            background-color: #0077ff;
-            font-weight: 600;
-        }
-     
-        #main-content {
-            flex-grow: 1;
-            padding: 30px;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .content-box {
-            background-color: #3498db;
-            border: 1px solid black; /*Added border*/
-            border-radius: 12px;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            text-align: center;
-            display: inline-block;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.4em;
-            transition: transform 0.2s ease;
-            overflow: hidden;
-        }
-
-        .content-box:hover {
-            transform: scale(1.03);
-        }
-        .content-box h2{
-          font-size: 1.6em;
-          margin-bottom: 10px;
-        }
-        .content-box p{
-          font-size: 1em;
-          color: #ecf0f1;
-        }
-
-    </style>
+    <title>App Page</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div id="sidebar">
-        <h1>FEELFLOW</h1>
-        <button id="homeBtn">Home</button>
-        <button id="journalLibraryBtn">Journal Library</button>
-        <button id="metricsBtn">Emotion Metrics</button>
-        <button id="settingsBtn">Settings</button>
+    <div class="navbar">
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='emotion-metrics.html'">Emotion Metrics</button>
+        <button onclick="location.href='settings.html'">Settings</button>
+        <button onclick="location.href='journal-library.html'">Journal Library</button>
     </div>
-
-    <div id="main-content">
-        <div id="promptsContent" class="content-box">
-            <h2>Journal Prompts</h2>
-            <p>Explore daily prompts to guide your reflections.</p>
-        </div>
-        <div id="streakContent" class="content-box">
-            <h2>Daily Journaling Streak</h2>
-            <p>Track your consistent journaling habit.</p>
-        </div>
-        <div id="metricsContent" class="content-box">
-            <h2>Emotion Metrics</h2>
-            <p>Visualize your emotional trends over time.</p>
-        </div>
-        <div id="insightsContent" class="content-box">
-            <h2>Insights</h2>
-            <p>Gain deeper insights from your journal entries.</p>
-        </div>
-        <div id="StartJournalContent" class="content-box">
-            <h2>New Journal</h2>
-        </div>
+    <div class="container">
+        <h1>App Page</h1>
+        <p>This is the app page. Add your app-specific content here.</p>
     </div>
-
-    <script>
-        const buttons = document.querySelectorAll('#sidebar button');
-        const contentBoxes = {
-            homeBtn: document.getElementById('StartJournalContent'),
-            homeBtn: document.getElementById('promptsContent'),
-            streakBtn: document.getElementById('streakContent'),
-            metricsBtn: document.getElementById('metricsContent'),
-            homeBtn: document.getElementById('insightsContent')
-
-            
-        };
-
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                for (const box in contentBoxes) {
-                    contentBoxes[box].style.display = 'none';
-                }
-
-                if (contentBoxes[button.id]) {
-                    contentBoxes[button.id].style.display = 'flex';
-                }
-            });
-        });
-
-        document.getElementById('promptsBtn').classList.add('active');
-        contentBoxes.promptsBtn.style.display = 'flex';
-        
-    </script>
 </body>
 </html>
