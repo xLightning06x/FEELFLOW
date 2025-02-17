@@ -3,19 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>FeelFlow - Settings</title>
+    <style>
+        /*... (Your existing FeelFlow CSS styles) */
+
+        #settings-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #settings-content label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #settings-content input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        #settings-content select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar">
-        <button onclick="location.href='index.html'">Home</button>
-        <button onclick="location.href='emotion-metrics.html'">Emotion Metrics</button>
-        <button onclick="location.href='settings.html'">Settings</button>
-        <button onclick="location.href='journal-library.html'">Journal Library</button>
+
+    <div id="sidebar">
+        <h1>FEELFLOW</h1>
+        <button id="homeBtn">Home</button>
+        <button id="journalLibraryBtn">Journal Library</button>
+        <button id="metricsBtn">Emotion Metrics</button>
+        <button id="settingsBtn">Settings</button> 
     </div>
-    <div class="container">
-        <h1>Settings</h1>
-        <p>Customize your app settings here.</p>
+
+    <div id="main-content">
+        <div id="promptsContent" class="content-box">
+            <h2>Journal Prompts</h2>
+            <p>Explore daily prompts to guide your reflections.</p>
+        </div>
+        <div id="streakContent" class="content-box">
+            <h2>Daily Journaling Streak</h2>
+            <p>Track your consistent journaling habit.</p>
+        </div>
+        <div id="metricsContent" class="content-box">
+            <h2>Emotion Metrics</h2>
+            <p>Visualize your emotional trends over time.</p>
+        </div>
+        <div id="insightsContent" class="content-box">
+            <h2>Insights</h2>
+            <p>Gain deeper insights from your journal entries.</p>
+        </div>
+        <div id="newJournalContent" class="content-box">
+            <h2>New Journal</h2>
+            <textarea placeholder="Start writing here..."></textarea>
+            <button id="saveJournalBtn">Save Entry</button>
+        </div>
+        <div id="SettingsContent" class="content-box">
+            <h2>Settings</h2>
+            <div id="settings-content">
+                <label for="theme">Theme:</label>
+                <select id="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="blue">Blue</option> 
+                </select>
+
+                <label for="notifications">Notifications:</label>
+                <input type="checkbox" id="notifications"> Enable daily reminders
+
+                {/* Add more settings here, e.g., 
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter Username"> 
+                */}
+            </div>
+        </div>
     </div>
-</body>
-</html>
+
+    <script>
+        //... (Your existing JavaScript code)
+
+        // Theme switching logic
+        const themeSelect = document.getElementById('theme');
+        const body = document.body;
+
+        themeSelect.addEventListener('change', () => {
+            const selectedTheme = themeSelect.value;
+            body.classList.remove('theme-light', 'theme-dark', 'theme-blue'); // Remove existing themes
+            body.classList.add(`theme-${selectedTheme}`); 
+            // You might also want to store the selected theme in localStorage
+        });
+
+        // Load saved theme (if any)
+        const savedTheme = localStorage.getItem('selectedTheme');
+        if (savedTheme) {
+            themeSelect.value = savedTheme;
+            body.classList.add(`theme-${saved
