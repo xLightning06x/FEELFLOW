@@ -17,5 +17,61 @@
         <h1>Settings</h1>
         <p>Customize your app settings here.</p>
     </div>
+    <title>Theme Switcher</title>
+  <style>
+    
+    .container {
+  display: object;
+  justify-content: center; /* This centers the buttons horizontally */
+  align-items: center; 
+  height: 10vh;
+}
+
+.theme-switcher {
+  display: object;
+  gap: 5px;
+}
+
+.theme-button {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.theme-light {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.theme-dark {
+  background-color: #333;
+  color: #fff;
+}
+  </style>
+</head>
+<body class="theme-light"> 
+
+  <div class="container">
+    <div class="theme-switcher">
+      <button class="theme-button theme-light active">Light</button>
+      <button class="theme-button theme-dark">Dark</button>
+    </div>
+  </div>
+
+  <script>
+    const themeButtons = document.querySelectorAll('.theme-button');
+    const body = document.body;
+
+    themeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        themeButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        body.classList.remove('theme-light', 'theme-dark');
+        body.classList.add(button.classList[1]); // Apply the theme class from the button
+      });
+    });
+  </script>
 </body>
 </html>
